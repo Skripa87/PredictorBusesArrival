@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище BusStopsDataBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Routes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="500" />
+          <Property Name="Type" Type="bit" />
+          <Property Name="Number" Type="int" />
+          <Property Name="fromst" Type="nchar" MaxLength="500" />
+          <Property Name="fromstid" Type="int" />
+          <Property Name="tost" Type="nchar" MaxLength="500" />
+          <Property Name="tostid" Type="nchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="StationForecast">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ArTime" Type="int" />
+          <Property Name="Where" Type="int" />
+          <Property Name="VehicalId" Type="int" />
+          <Property Name="RoutId" Type="int" />
+          <Property Name="RoutType" Type="nchar" MaxLength="100" />
+          <Property Name="RoutNumber" Type="int" />
+          <Property Name="LastStation" Type="nchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Stations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nchar" MaxLength="500" />
+          <Property Name="Description" Type="nchar" MaxLength="2000" />
+          <Property Name="Lat" Type="nchar" MaxLength="100" />
+          <Property Name="Lng" Type="nchar" MaxLength="100" />
+          <Property Name="Type" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="Хранилище BusStopsDataBaseModelContainer">
+          <EntitySet Name="Routes" EntityType="Self.Routes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StationForecast" EntityType="Self.StationForecast" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stations" EntityType="Self.Stations" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BusStopsDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Route">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="Type" Type="Boolean" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="fromst" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="fromstid" Type="Int32" />
+          <Property Name="tost" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="tostid" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StationForecast">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ArTime" Type="Int32" />
+          <Property Name="Where" Type="Int32" />
+          <Property Name="VehicalId" Type="Int32" />
+          <Property Name="RoutId" Type="Int32" />
+          <Property Name="RoutType" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="RoutNumber" Type="Int32" />
+          <Property Name="LastStation" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Station">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="2000" FixedLength="true" Unicode="true" />
+          <Property Name="Lat" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Lng" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Type" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="BusStopsDataBaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Routes" EntityType="Self.Route" />
+          <EntitySet Name="StationForecasts" EntityType="Self.StationForecast" />
+          <EntitySet Name="Stations" EntityType="Self.Station" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище BusStopsDataBaseModelContainer" CdmEntityContainer="BusStopsDataBaseEntities">
+          <EntitySetMapping Name="Routes">
+            <EntityTypeMapping TypeName="BusStopsDataBaseModel.Route">
+              <MappingFragment StoreEntitySet="Routes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="fromst" ColumnName="fromst" />
+                <ScalarProperty Name="fromstid" ColumnName="fromstid" />
+                <ScalarProperty Name="tost" ColumnName="tost" />
+                <ScalarProperty Name="tostid" ColumnName="tostid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StationForecasts">
+            <EntityTypeMapping TypeName="BusStopsDataBaseModel.StationForecast">
+              <MappingFragment StoreEntitySet="StationForecast">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ArTime" ColumnName="ArTime" />
+                <ScalarProperty Name="Where" ColumnName="Where" />
+                <ScalarProperty Name="VehicalId" ColumnName="VehicalId" />
+                <ScalarProperty Name="RoutId" ColumnName="RoutId" />
+                <ScalarProperty Name="RoutType" ColumnName="RoutType" />
+                <ScalarProperty Name="RoutNumber" ColumnName="RoutNumber" />
+                <ScalarProperty Name="LastStation" ColumnName="LastStation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stations">
+            <EntityTypeMapping TypeName="BusStopsDataBaseModel.Station">
+              <MappingFragment StoreEntitySet="Stations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Lng" ColumnName="Lng" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
