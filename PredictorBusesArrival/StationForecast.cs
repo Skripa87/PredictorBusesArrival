@@ -16,11 +16,11 @@ namespace PredictorBusesArrival
     {
         public int Id { get; set; }
         public Nullable<int> ArTime { get; set; }
-        public Nullable<int> Where { get; set; }
-        public Nullable<int> VehicalId { get; set; }
-        public Nullable<int> RoutId { get; set; }
-        public string RoutType { get; set; }
-        public Nullable<int> RoutNumber { get; set; }
+        public string Where { get; set; }
+        public Nullable<int> VehId { get; set; }
+        public Nullable<int> RId { get; set; }
+        public string RType { get; set; }
+        public Nullable<int> RNum { get; set; }
         public string LastStation { get; set; }
     }
 }

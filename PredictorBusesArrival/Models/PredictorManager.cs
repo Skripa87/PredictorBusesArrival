@@ -27,7 +27,23 @@ namespace PredictorBusesArrival.Models
                       .Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public async Task<string> GetAllStations(string path)
+        private void WriteInfoStationsToBase(IEnumerable<Station> stations)
+        {
+            try
+            {
+                using (var db = new BusStopsDataBaseEntities2())
+                {
+                    db.Stations.AddRange(stations);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        public async Task<IEnumerable<Station>> GetAllStations(string path)
         {
             string result = null;
             HttpResponseMessage response = await httpClient.GetAsync(path);
@@ -36,7 +52,8 @@ namespace PredictorBusesArrival.Models
                 result = await response.Content.ReadAsStringAsync();
             }
             var jResult = JToken.Parse(result).ToObject<IEnumerable<Station>>();
-            return result;
+            WriteInfoStationsToBase(jResult);
+            return jResult;
         }
     }
 }

@@ -13,10 +13,10 @@
           <Property Name="Name" Type="nchar" MaxLength="500" />
           <Property Name="Type" Type="nchar" MaxLength="1" />
           <Property Name="Number" Type="int" />
-          <Property Name="fromst" Type="nchar" MaxLength="500" />
-          <Property Name="fromstid" Type="int" />
-          <Property Name="tost" Type="nchar" MaxLength="500" />
-          <Property Name="tostid" Type="nchar" MaxLength="500" />
+          <Property Name="Fromst" Type="nchar" MaxLength="500" />
+          <Property Name="FromstId" Type="int" />
+          <Property Name="Tost" Type="nchar" MaxLength="500" />
+          <Property Name="TostId" Type="int" />
         </EntityType>
         <EntityType Name="StationForecast">
           <Key>
@@ -24,11 +24,11 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="ArTime" Type="int" />
-          <Property Name="Where" Type="int" />
-          <Property Name="VehicalId" Type="int" />
-          <Property Name="RoutId" Type="int" />
-          <Property Name="RoutType" Type="nchar" MaxLength="100" />
-          <Property Name="RoutNumber" Type="int" />
+          <Property Name="Where" Type="nchar" MaxLength="500" />
+          <Property Name="VehId" Type="int" />
+          <Property Name="RId" Type="int" />
+          <Property Name="RType" Type="nchar" MaxLength="1" />
+          <Property Name="RNum" Type="int" />
           <Property Name="LastStation" Type="nchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="Stations">
@@ -37,7 +37,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="500" />
-          <Property Name="Description" Type="nchar" MaxLength="2000" />
+          <Property Name="Descr" Type="nchar" MaxLength="100" />
           <Property Name="Lat" Type="nchar" MaxLength="100" />
           <Property Name="Lng" Type="nchar" MaxLength="100" />
           <Property Name="Type" Type="nchar" MaxLength="1" />
@@ -60,10 +60,10 @@
           <Property Name="Name" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
           <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
           <Property Name="Number" Type="Int32" />
-          <Property Name="fromst" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
-          <Property Name="fromstid" Type="Int32" />
-          <Property Name="tost" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
-          <Property Name="tostid" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="Fromst" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="FromstId" Type="Int32" />
+          <Property Name="Tost" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="TostId" Type="Int32" />
         </EntityType>
         <EntityType Name="StationForecast">
           <Key>
@@ -71,11 +71,11 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="ArTime" Type="Int32" />
-          <Property Name="Where" Type="Int32" />
-          <Property Name="VehicalId" Type="Int32" />
-          <Property Name="RoutId" Type="Int32" />
-          <Property Name="RoutType" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="RoutNumber" Type="Int32" />
+          <Property Name="Where" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="VehId" Type="Int32" />
+          <Property Name="RId" Type="Int32" />
+          <Property Name="RType" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="RNum" Type="Int32" />
           <Property Name="LastStation" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Station">
@@ -84,12 +84,12 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="2000" FixedLength="true" Unicode="true" />
+          <Property Name="Descr" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="Lat" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="Lng" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="BusStopsDataBaseEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BusStopsDataBaseEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Routes" EntityType="Self.Route" />
           <EntitySet Name="StationForecasts" EntityType="Self.StationForecast" />
           <EntitySet Name="Stations" EntityType="Self.Station" />
@@ -99,7 +99,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище BusStopsDataBaseModelContainer" CdmEntityContainer="BusStopsDataBaseEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище BusStopsDataBaseModelContainer" CdmEntityContainer="BusStopsDataBaseEntities2">
           <EntitySetMapping Name="Routes">
             <EntityTypeMapping TypeName="BusStopsDataBaseModel.Route">
               <MappingFragment StoreEntitySet="Routes">
@@ -107,10 +107,10 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="fromst" ColumnName="fromst" />
-                <ScalarProperty Name="fromstid" ColumnName="fromstid" />
-                <ScalarProperty Name="tost" ColumnName="tost" />
-                <ScalarProperty Name="tostid" ColumnName="tostid" />
+                <ScalarProperty Name="Fromst" ColumnName="Fromst" />
+                <ScalarProperty Name="FromstId" ColumnName="FromstId" />
+                <ScalarProperty Name="Tost" ColumnName="Tost" />
+                <ScalarProperty Name="TostId" ColumnName="TostId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -120,10 +120,10 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ArTime" ColumnName="ArTime" />
                 <ScalarProperty Name="Where" ColumnName="Where" />
-                <ScalarProperty Name="VehicalId" ColumnName="VehicalId" />
-                <ScalarProperty Name="RoutId" ColumnName="RoutId" />
-                <ScalarProperty Name="RoutType" ColumnName="RoutType" />
-                <ScalarProperty Name="RoutNumber" ColumnName="RoutNumber" />
+                <ScalarProperty Name="VehId" ColumnName="VehId" />
+                <ScalarProperty Name="RId" ColumnName="RId" />
+                <ScalarProperty Name="RType" ColumnName="RType" />
+                <ScalarProperty Name="RNum" ColumnName="RNum" />
                 <ScalarProperty Name="LastStation" ColumnName="LastStation" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -133,7 +133,7 @@
               <MappingFragment StoreEntitySet="Stations">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Descr" ColumnName="Descr" />
                 <ScalarProperty Name="Lat" ColumnName="Lat" />
                 <ScalarProperty Name="Lng" ColumnName="Lng" />
                 <ScalarProperty Name="Type" ColumnName="Type" />

@@ -13,10 +13,10 @@ namespace PredictorBusesArrival
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BusStopsDataBaseEntities1 : DbContext
+    public partial class BusStopsDataBaseEntities2 : DbContext
     {
-        public BusStopsDataBaseEntities1()
-            : base("name=BusStopsDataBaseEntities1")
+        public BusStopsDataBaseEntities2()
+            : base("name=BusStopsDataBaseEntities2")
         {
         }
     
