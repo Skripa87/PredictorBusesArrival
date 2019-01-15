@@ -184,6 +184,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PredictorManager.cs" />
     <Compile Include="PredictorBusesArrival.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
