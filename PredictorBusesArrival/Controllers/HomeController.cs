@@ -10,11 +10,31 @@ namespace PredictorBusesArrival.Controllers
 {
     public class HomeController : Controller
     {
+        private BusStopsDataBaseEntities2 db;
+        private static PredictorManager manager;
+        private static List<Station> stations;
+
+        public static ShowPredictBusStopViewModel ViewModel { get; set; }
+
+        private void Initializate()
+        {
+            db = new BusStopsDataBaseEntities2();
+            stations = db.Stations.ToList();
+            manager = new PredictorManager();
+        }
+
         public async Task<ActionResult> Index()
         {
-            PredictorManager manager = new PredictorManager();
-            await manager.GetAllStations("http://glonass.ufagortrans.ru/php/getStations.php?city=ufagortrans&info=12345&_=1517558480807");
+            Initializate();
+            ViewModel = new ShowPredictBusStopViewModel(stations, 0, manager);
             return View();
-        } 
+        }
+
+        public PartialViewResult SelectBusArrival(string parametr)
+        {
+            var id = parametr.Split(';')[0];
+            ViewModel.SelectBusStop(Convert.ToInt32(id), stations, manager);
+            return PartialView(ViewModel.StationForecasts.ToList());
+        }
     }
 }

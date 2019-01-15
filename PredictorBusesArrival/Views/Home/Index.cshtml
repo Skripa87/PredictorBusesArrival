@@ -1,5 +1,7 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model PredictorBusesArrival.Models.ShowPredictBusStopViewModel
+@using ConfiguratorASUTP.Models
+@{
+    ViewBag.Title = @"Прогноз прибытия автотранспорта";
 }
 
 <div class=" row">
@@ -9,7 +11,8 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-        @using(Html.BeginForm("","Home"))
+        @BootstrapHtml.Dropdown("PredictBusArrivalDropdownListId","InformationBlockId",(List<SelectListItem>)Model.BusStops.Items,"",
+                                Url.Action("SelectBusArrival","Home"),null,"dropDownCssClass",ViewContext,ViewData);
     </div>
     
     <div class="col-md-4">
