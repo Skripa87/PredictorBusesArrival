@@ -55,5 +55,19 @@ namespace PredictorBusesArrival.Models
             WriteInfoStationsToBase(jResult);
             return jResult;
         }
+
+        public async Task<IEnumerable<StationForecast>> GetStationForecast(string idStation)
+        {
+            string result = null;
+            var path = "http://glonass.ufagortrans.ru/php/getStationForecasts.php?sid=" + idStation + "&type=0&city=ufagortrans&info=12345&_=1517558480816";
+            HttpResponseMessage response = await httpClient.GetAsync(path);
+            if (response.IsSuccessStatusCode)
+            {
+                result = await response.Content.ReadAsStringAsync();
+            }
+            var jResult = JToken.Parse(result).ToObject<IEnumerable<StationForecast>>();
+            
+            return jResult;
+        }
     }
 }
