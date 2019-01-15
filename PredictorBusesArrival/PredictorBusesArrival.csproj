@@ -185,31 +185,31 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PredictorManager.cs" />
-    <Compile Include="PredictorBusesArrival.Context.cs">
+    <Compile Include="PredictBusesArrivalModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PredictorBusesArrival.Context.tt</DependentUpon>
+      <DependentUpon>PredictBusesArrivalModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="PredictorBusesArrival.cs">
+    <Compile Include="PredictBusesArrivalModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PredictorBusesArrival.tt</DependentUpon>
+      <DependentUpon>PredictBusesArrivalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PredictorBusesArrival.Designer.cs">
+    <Compile Include="PredictBusesArrivalModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PredictorBusesArrival.edmx</DependentUpon>
+      <DependentUpon>PredictBusesArrivalModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Route.cs">
-      <DependentUpon>PredictorBusesArrival.tt</DependentUpon>
+      <DependentUpon>PredictBusesArrivalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Station.cs">
-      <DependentUpon>PredictorBusesArrival.tt</DependentUpon>
+      <DependentUpon>PredictBusesArrivalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="StationForecast.cs">
-      <DependentUpon>PredictorBusesArrival.tt</DependentUpon>
+      <DependentUpon>PredictBusesArrivalModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -225,24 +225,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="PredictorBusesArrival.Context.tt">
+    <Content Include="PredictBusesArrivalModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PredictorBusesArrival.edmx</DependentUpon>
-      <LastGenOutput>PredictorBusesArrival.Context.cs</LastGenOutput>
+      <DependentUpon>PredictBusesArrivalModel.edmx</DependentUpon>
+      <LastGenOutput>PredictBusesArrivalModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="PredictorBusesArrival.tt">
+    <Content Include="PredictBusesArrivalModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PredictorBusesArrival.edmx</DependentUpon>
-      <LastGenOutput>PredictorBusesArrival.cs</LastGenOutput>
+      <DependentUpon>PredictBusesArrivalModel.edmx</DependentUpon>
+      <LastGenOutput>PredictBusesArrivalModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="PredictorBusesArrival.edmx">
+    <EntityDeploy Include="PredictBusesArrivalModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PredictorBusesArrival.Designer.cs</LastGenOutput>
+      <LastGenOutput>PredictBusesArrivalModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="PredictorBusesArrival.edmx.diagram">
-      <DependentUpon>PredictorBusesArrival.edmx</DependentUpon>
+    <Content Include="PredictBusesArrivalModel.edmx.diagram">
+      <DependentUpon>PredictBusesArrivalModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

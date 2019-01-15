@@ -35,8 +35,6 @@ namespace PredictorBusesArrival.Models
             {
                 result = await response.Content.ReadAsStringAsync();
             }
-            var spliterResult = new List<string>();
-            result.Split("},{".ToArray());
             var jResult = JToken.Parse(result).ToObject<IEnumerable<Station>>();
             return result;
         }

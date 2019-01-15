@@ -19,6 +19,6 @@ namespace PredictorBusesArrival
         public string Description { get; set; }
         public string Lat { get; set; }
         public string Lng { get; set; }
-        public Nullable<bool> Type { get; set; }
+        public string Type { get; set; }
     }
 }

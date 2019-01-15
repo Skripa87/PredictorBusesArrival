@@ -11,7 +11,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="500" />
-          <Property Name="Type" Type="bit" />
+          <Property Name="Type" Type="nchar" MaxLength="1" />
           <Property Name="Number" Type="int" />
           <Property Name="fromst" Type="nchar" MaxLength="500" />
           <Property Name="fromstid" Type="int" />
@@ -40,7 +40,7 @@
           <Property Name="Description" Type="nchar" MaxLength="2000" />
           <Property Name="Lat" Type="nchar" MaxLength="100" />
           <Property Name="Lng" Type="nchar" MaxLength="100" />
-          <Property Name="Type" Type="bit" />
+          <Property Name="Type" Type="nchar" MaxLength="1" />
         </EntityType>
         <EntityContainer Name="Хранилище BusStopsDataBaseModelContainer">
           <EntitySet Name="Routes" EntityType="Self.Routes" Schema="dbo" store:Type="Tables" />
@@ -58,7 +58,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
-          <Property Name="Type" Type="Boolean" />
+          <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
           <Property Name="Number" Type="Int32" />
           <Property Name="fromst" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
           <Property Name="fromstid" Type="Int32" />
@@ -87,9 +87,9 @@
           <Property Name="Description" Type="String" MaxLength="2000" FixedLength="true" Unicode="true" />
           <Property Name="Lat" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="Lng" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
-          <Property Name="Type" Type="Boolean" />
+          <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="BusStopsDataBaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BusStopsDataBaseEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Routes" EntityType="Self.Route" />
           <EntitySet Name="StationForecasts" EntityType="Self.StationForecast" />
           <EntitySet Name="Stations" EntityType="Self.Station" />
@@ -99,7 +99,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище BusStopsDataBaseModelContainer" CdmEntityContainer="BusStopsDataBaseEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище BusStopsDataBaseModelContainer" CdmEntityContainer="BusStopsDataBaseEntities1">
           <EntitySetMapping Name="Routes">
             <EntityTypeMapping TypeName="BusStopsDataBaseModel.Route">
               <MappingFragment StoreEntitySet="Routes">
