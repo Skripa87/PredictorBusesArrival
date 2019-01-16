@@ -1,1 +1,17 @@
-﻿
+﻿@model List<StationForecast>
+@foreach (var item in Model)
+{
+    <div class="row information-table-row">
+        <div class="col-md-2">
+            <p>@item.Rnum</p>
+        </div>
+        <div class="col-md-8">
+            <p>@item.Where</p>
+        </div>
+        <div class="col-md-2">
+            <p>@(((int)(item.Arrt / 60)).ToString())</p>
+        </div>
+    </div>
+}
+
+

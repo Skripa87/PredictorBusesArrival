@@ -1,21 +1,13 @@
 ﻿@model PredictorBusesArrival.Models.ShowPredictBusStopViewModel
-@using ConfiguratorASUTP.Models
 @{
     ViewBag.Title = @"Прогноз прибытия автотранспорта";
 }
-
-<div class=" row">
-    <div class="col-md-12">
-
-    </div>
-</div>
 <div class="row">
-    <div class="col-md-4">
-        @BootstrapHtml.Dropdown("PredictBusArrivalDropdownListId","InformationBlockId",(List<SelectListItem>)Model.BusStops.Items,"",
-                                Url.Action("SelectBusArrival","Home"),null,"dropDownCssClass",ViewContext,ViewData);
+    <div class="col-md-3 information-table">
+        <div class="tiket-table">
+            @Html.Partial("SelectBusArrival", Model.StationForecasts)
+        </div>
     </div>
-    
-    <div class="col-md-4">
-
+    <div class="col-md-9">
     </div>
 </div>

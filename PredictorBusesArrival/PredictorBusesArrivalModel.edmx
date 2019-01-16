@@ -13,39 +13,52 @@
           <Property Name="Name" Type="nchar" MaxLength="500" />
           <Property Name="Type" Type="nchar" MaxLength="1" />
           <Property Name="Number" Type="int" />
-          <Property Name="Fromst" Type="nchar" MaxLength="500" />
-          <Property Name="FromstId" Type="int" />
-          <Property Name="Tost" Type="nchar" MaxLength="500" />
-          <Property Name="TostId" Type="int" />
+          <Property Name="fromst" Type="nchar" MaxLength="500" />
+          <Property Name="fromstid" Type="int" />
+          <Property Name="tost" Type="nchar" MaxLength="500" />
+          <Property Name="tostid" Type="nchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="StationForecast">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="ArTime" Type="int" />
+          <Property Name="Arrt" Type="int" />
           <Property Name="Where" Type="nchar" MaxLength="500" />
-          <Property Name="VehId" Type="int" />
-          <Property Name="RId" Type="int" />
-          <Property Name="RType" Type="nchar" MaxLength="1" />
-          <Property Name="RNum" Type="int" />
-          <Property Name="LastStation" Type="nchar" MaxLength="500" />
+          <Property Name="Vehid" Type="nchar" MaxLength="100" />
+          <Property Name="Rid" Type="int" />
+          <Property Name="Rtype" Type="nchar" MaxLength="1" />
+          <Property Name="Rnum" Type="int" />
+          <Property Name="Lastst" Type="nchar" MaxLength="500" />
         </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "C:\USERS\BOGDANOVA-GR\SOURCE\REPOS\PREDICTORBUSESARRIVAL\PREDICTORBUSESARRIVAL\APP_DATA\BUSSTOPSDATABASE.MDF.dbo.Stations" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
         <EntityType Name="Stations">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="500" />
-          <Property Name="Descr" Type="nchar" MaxLength="100" />
+          <Property Name="Descr" Type="nchar" MaxLength="2000" />
           <Property Name="Lat" Type="nchar" MaxLength="100" />
           <Property Name="Lng" Type="nchar" MaxLength="100" />
           <Property Name="Type" Type="nchar" MaxLength="1" />
+          <Property Name="Active" Type="bit" />
         </EntityType>
         <EntityContainer Name="Хранилище BusStopsDataBaseModelContainer">
           <EntitySet Name="Routes" EntityType="Self.Routes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StationForecast" EntityType="Self.StationForecast" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Stations" EntityType="Self.Stations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stations" EntityType="Self.Stations" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Stations].[Id] AS [Id], 
+    [Stations].[Name] AS [Name], 
+    [Stations].[Descr] AS [Descr], 
+    [Stations].[Lat] AS [Lat], 
+    [Stations].[Lng] AS [Lng], 
+    [Stations].[Type] AS [Type], 
+    [Stations].[Active] AS [Active]
+    FROM [dbo].[Stations] AS [Stations]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -60,23 +73,23 @@
           <Property Name="Name" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
           <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
           <Property Name="Number" Type="Int32" />
-          <Property Name="Fromst" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
-          <Property Name="FromstId" Type="Int32" />
-          <Property Name="Tost" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
-          <Property Name="TostId" Type="Int32" />
+          <Property Name="fromst" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="fromstid" Type="Int32" />
+          <Property Name="tost" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="tostid" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="StationForecast">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="ArTime" Type="Int32" />
+          <Property Name="Arrt" Type="Int32" />
           <Property Name="Where" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
-          <Property Name="VehId" Type="Int32" />
-          <Property Name="RId" Type="Int32" />
-          <Property Name="RType" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
-          <Property Name="RNum" Type="Int32" />
-          <Property Name="LastStation" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
+          <Property Name="Vehid" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Rid" Type="Int32" />
+          <Property Name="Rtype" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Rnum" Type="Int32" />
+          <Property Name="Lastst" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Station">
           <Key>
@@ -84,12 +97,13 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="500" FixedLength="true" Unicode="true" />
-          <Property Name="Descr" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Descr" Type="String" MaxLength="2000" FixedLength="true" Unicode="true" />
           <Property Name="Lat" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="Lng" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
           <Property Name="Type" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
         </EntityType>
-        <EntityContainer Name="BusStopsDataBaseEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BusStopsDataBaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Routes" EntityType="Self.Route" />
           <EntitySet Name="StationForecasts" EntityType="Self.StationForecast" />
           <EntitySet Name="Stations" EntityType="Self.Station" />
@@ -99,7 +113,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище BusStopsDataBaseModelContainer" CdmEntityContainer="BusStopsDataBaseEntities2">
+        <EntityContainerMapping StorageEntityContainer="Хранилище BusStopsDataBaseModelContainer" CdmEntityContainer="BusStopsDataBaseEntities">
           <EntitySetMapping Name="Routes">
             <EntityTypeMapping TypeName="BusStopsDataBaseModel.Route">
               <MappingFragment StoreEntitySet="Routes">
@@ -107,10 +121,10 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
-                <ScalarProperty Name="Fromst" ColumnName="Fromst" />
-                <ScalarProperty Name="FromstId" ColumnName="FromstId" />
-                <ScalarProperty Name="Tost" ColumnName="Tost" />
-                <ScalarProperty Name="TostId" ColumnName="TostId" />
+                <ScalarProperty Name="fromst" ColumnName="fromst" />
+                <ScalarProperty Name="fromstid" ColumnName="fromstid" />
+                <ScalarProperty Name="tost" ColumnName="tost" />
+                <ScalarProperty Name="tostid" ColumnName="tostid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -118,13 +132,13 @@
             <EntityTypeMapping TypeName="BusStopsDataBaseModel.StationForecast">
               <MappingFragment StoreEntitySet="StationForecast">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ArTime" ColumnName="ArTime" />
+                <ScalarProperty Name="Arrt" ColumnName="Arrt" />
                 <ScalarProperty Name="Where" ColumnName="Where" />
-                <ScalarProperty Name="VehId" ColumnName="VehId" />
-                <ScalarProperty Name="RId" ColumnName="RId" />
-                <ScalarProperty Name="RType" ColumnName="RType" />
-                <ScalarProperty Name="RNum" ColumnName="RNum" />
-                <ScalarProperty Name="LastStation" ColumnName="LastStation" />
+                <ScalarProperty Name="Vehid" ColumnName="Vehid" />
+                <ScalarProperty Name="Rid" ColumnName="Rid" />
+                <ScalarProperty Name="Rtype" ColumnName="Rtype" />
+                <ScalarProperty Name="Rnum" ColumnName="Rnum" />
+                <ScalarProperty Name="Lastst" ColumnName="Lastst" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -137,6 +151,7 @@
                 <ScalarProperty Name="Lat" ColumnName="Lat" />
                 <ScalarProperty Name="Lng" ColumnName="Lng" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

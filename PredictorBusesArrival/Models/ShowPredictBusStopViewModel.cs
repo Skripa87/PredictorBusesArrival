@@ -35,7 +35,7 @@ namespace PredictorBusesArrival.Models
             }
             SelectedBusStop = stations.Find(f => f.Id == selectedItemId) 
                             ?? stations.FirstOrDefault();
-            StationForecasts = manager.GetStationForecast(selectedItemId.ToString()).Result;
+            StationForecasts = manager.GetStationForecast(selectedItemId.ToString());
         }
 
         public void SelectBusStop(int selectedItemId, List<Station> stations, PredictorManager manager)
@@ -45,7 +45,7 @@ namespace PredictorBusesArrival.Models
             {
                 ((List<SelectListItem>) BusStops.Items).FindAll(a => a.Value == selectedItemId.ToString())[0].Selected = true;
             }
-            StationForecasts = manager.GetStationForecast(selectedItemId.ToString()).Result;
+            StationForecasts = manager.GetStationForecast(selectedItemId.ToString());
         }
 
     }
