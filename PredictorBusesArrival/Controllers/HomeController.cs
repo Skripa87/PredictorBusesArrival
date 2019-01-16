@@ -10,7 +10,7 @@ namespace PredictorBusesArrival.Controllers
 {
     public class HomeController : Controller
     {
-        private BusStopsDataBaseEntities2 db;
+        private BusStopsDataBaseEntities db;
         private static PredictorManager manager;
         private static List<Station> stations;
 
@@ -18,7 +18,7 @@ namespace PredictorBusesArrival.Controllers
 
         private void Initializate()
         {
-            db = new BusStopsDataBaseEntities2();
+            db = new BusStopsDataBaseEntities();
             stations = db.Stations.ToList();
             manager = new PredictorManager();
         }
@@ -26,8 +26,10 @@ namespace PredictorBusesArrival.Controllers
         public async Task<ActionResult> Index()
         {
             Initializate();
-            ViewModel = new ShowPredictBusStopViewModel(stations, 0, manager);
-            return View();
+            //var result = manager.GetAllStations("http://glonass.ufagortrans.ru/php/getStations.php?city=ufagortrans&info=12345&_=1517558480807");
+            var stationsActive = stations.FindAll(s => s.Active == true);
+            ViewModel = new ShowPredictBusStopViewModel(stationsActive, 548, manager);
+            return View(ViewModel);
         }
 
         public PartialViewResult SelectBusArrival(string parametr)

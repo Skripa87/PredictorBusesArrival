@@ -175,9 +175,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,31 +184,31 @@
     <Compile Include="Models\PredictorManager.cs" />
     <Compile Include="Models\ShowPredictBusStopViewModel.cs" />
     <Compile Include="Models\ViewDataContainer.cs" />
-    <Compile Include="PredictBuseArrivalModel.Context.cs">
+    <Compile Include="PredictorBusesArrivalModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PredictBuseArrivalModel.Context.tt</DependentUpon>
+      <DependentUpon>PredictorBusesArrivalModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="PredictBuseArrivalModel.cs">
+    <Compile Include="PredictorBusesArrivalModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PredictBuseArrivalModel.tt</DependentUpon>
+      <DependentUpon>PredictorBusesArrivalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PredictBuseArrivalModel.Designer.cs">
+    <Compile Include="PredictorBusesArrivalModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PredictBuseArrivalModel.edmx</DependentUpon>
+      <DependentUpon>PredictorBusesArrivalModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Route.cs">
-      <DependentUpon>PredictBuseArrivalModel.tt</DependentUpon>
+      <DependentUpon>PredictorBusesArrivalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Station.cs">
-      <DependentUpon>PredictBuseArrivalModel.tt</DependentUpon>
+      <DependentUpon>PredictorBusesArrivalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="StationForecast.cs">
-      <DependentUpon>PredictBuseArrivalModel.tt</DependentUpon>
+      <DependentUpon>PredictorBusesArrivalModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -226,24 +224,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="PredictBuseArrivalModel.Context.tt">
+    <Content Include="PredictorBusesArrivalModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PredictBuseArrivalModel.edmx</DependentUpon>
-      <LastGenOutput>PredictBuseArrivalModel.Context.cs</LastGenOutput>
+      <DependentUpon>PredictorBusesArrivalModel.edmx</DependentUpon>
+      <LastGenOutput>PredictorBusesArrivalModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="PredictBuseArrivalModel.tt">
+    <Content Include="PredictorBusesArrivalModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PredictBuseArrivalModel.edmx</DependentUpon>
-      <LastGenOutput>PredictBuseArrivalModel.cs</LastGenOutput>
+      <DependentUpon>PredictorBusesArrivalModel.edmx</DependentUpon>
+      <LastGenOutput>PredictorBusesArrivalModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="PredictBuseArrivalModel.edmx">
+    <EntityDeploy Include="PredictorBusesArrivalModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PredictBuseArrivalModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>PredictorBusesArrivalModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="PredictBuseArrivalModel.edmx.diagram">
-      <DependentUpon>PredictBuseArrivalModel.edmx</DependentUpon>
+    <Content Include="PredictorBusesArrivalModel.edmx.diagram">
+      <DependentUpon>PredictorBusesArrivalModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -268,24 +266,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\SelectBusArrival.cshtml" />

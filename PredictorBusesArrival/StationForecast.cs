@@ -15,12 +15,12 @@ namespace PredictorBusesArrival
     public partial class StationForecast
     {
         public int Id { get; set; }
-        public Nullable<int> ArTime { get; set; }
+        public Nullable<int> Arrt { get; set; }
         public string Where { get; set; }
-        public Nullable<int> VehId { get; set; }
-        public Nullable<int> RId { get; set; }
-        public string RType { get; set; }
-        public Nullable<int> RNum { get; set; }
-        public string LastStation { get; set; }
+        public string Vehid { get; set; }
+        public Nullable<int> Rid { get; set; }
+        public string Rtype { get; set; }
+        public Nullable<int> Rnum { get; set; }
+        public string Lastst { get; set; }
     }
 }

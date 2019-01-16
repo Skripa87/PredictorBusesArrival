@@ -18,9 +18,9 @@ namespace PredictorBusesArrival
         public string Name { get; set; }
         public string Type { get; set; }
         public Nullable<int> Number { get; set; }
-        public string Fromst { get; set; }
-        public Nullable<int> FromstId { get; set; }
-        public string Tost { get; set; }
-        public Nullable<int> TostId { get; set; }
+        public string fromst { get; set; }
+        public Nullable<int> fromstid { get; set; }
+        public string tost { get; set; }
+        public string tostid { get; set; }
     }
 }

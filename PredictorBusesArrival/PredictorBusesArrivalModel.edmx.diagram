@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3805577e8d5049fd92e637ccfc3e6f6d" Name="Diagram1">
+      <Diagram DiagramId="a21656d135534980ad1ee012a8f8d267" Name="Diagram1">
         <EntityTypeShape EntityType="BusStopsDataBaseModel.Route" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BusStopsDataBaseModel.StationForecast" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BusStopsDataBaseModel.Station" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
